@@ -1,0 +1,101 @@
+
+<style>
+    .panel { width:100%; border:solid 1px #333 }
+    .panel-title { font-family: 'Roboto'; padding:10px; background-color:#333; color:#f2f2f2; font-family: 'Roboto' }
+    .panel-body { padding:1em }
+    .content { display: flex; margin: 100px auto 32px; padding: 0 16px; max-width: 700px; flex-direction: column; align-items: center; }
+  </style>
+  
+  <div class="container">
+  <div class="content" role="main">
+      <div class="panel">
+          <div class="panel-title text-center"><i class="fa fa-trash mr-5"></i> CREATE BIN</div>
+          <div class="panel-body">
+                <form name="login" method="post">
+                  <div class="row">
+                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 form-group">
+                        <label for="usn">Area:</label>
+                        <input type="text" name="area" class="form-control">
+                      </div>
+                      <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 form-group">
+                        <label for="pswd">Locality:</label>
+                        <input type="password" name="locality" class="form-control">
+                      </div>
+                  </div>  
+                  
+                  <div class="row">
+                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 form-group">
+                        <div class="form-group">
+                            <label for="pswd">Landmark:</label>
+                            <input type="password" name="landmark" class="form-control">
+                        </div>
+                    </div>
+                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 form-group">
+                        <div class="form-group">
+                            <label for="pswd">City:</label>
+                            <select name="usertype" class="form-control">
+                            <option selected>Select City</option>
+                            <option value="user">Ahmedabad</option>
+                            <option value="baroda">Baroda</option>
+                            <option value="bhavnagar">Bhavnagar</option>
+                            <option value="rajkot">Rajkot</option>
+                            <option value="surat">Surat</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 form-group">
+                        <div class="form-group">
+                            <label for="pswd">Load Type:</label>
+                            <select name="usertype" class="form-control">
+                            <option selected>Select Load Type</option>
+                            <option value="user">Low</option>
+                            <option value="baroda">Medium</option>
+                            <option value="bhavnagar">High</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 form-group">
+                        <div class="form-group">
+                            <label for="pswd">Assign Driver:</label>
+                            <select name="usertype" class="form-control">
+                            <option selected>Select Driver</option>
+                            <option value="user">Driver Name-1</option>
+                            <option value="user">Driver Name-2</option>
+                            <option value="user">Driver Name-3</option>
+                            <option value="user">Driver Name-4</option>
+                            <option value="user">Driver Name-5</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 form-group">
+                    <div class="form-group">
+                        <label for="pswd">Schedule:</label>
+                        <select name="usertype" class="form-control">
+                        <option selected>Select Schedule</option>
+                        <option value="user">Daily</option>
+                        <option value="user">Weekly</option>
+                        <option value="user">Monthly</option>
+                        </select>
+                    </div>
+                    </div>
+                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 form-group">
+                    <div class="form-group">
+                        <label for="pswd">Best Route:</label>
+                        <textarea name="bestroute" id="bestroute" cols="30" rows="10" class="form-control"></textarea>
+                    </div>
+                    </div>
+                </div>
+                    <div class="row">
+                        <div class="text-center">
+                            <input type="submit" name="createdriver" value="Create" class="btn btn-primary">
+                        </div>
+                    </div>
+                </form>
+          </div>
+      </div>
+    </div>
+  </div>
