@@ -5,7 +5,7 @@ import { Component, OnInit } from '@angular/core';
   templateUrl: './binupdate.component.html',
   styleUrls: ['./binupdate.component.scss']
 })
-export class UpdateComponent implements OnInit {
+export class BinUpdateComponent implements OnInit {
 
   constructor() { }
 

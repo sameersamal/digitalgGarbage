@@ -1,0 +1,2 @@
+$('#adminrequesttable').DataTable({});
+

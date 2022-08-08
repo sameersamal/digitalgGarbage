@@ -2,7 +2,7 @@
 <div class="container">
     <div class="content" role="main">
         <div class="panel">
-            <div class="panel-title text-center"><i class="fa fa-trash mr-5"></i> CREATE BIN</div>
+            <div class="panel-title text-center"><i class="fa fa-trash mr-5"></i> Update BIN</div>
             <div class="panel-body">
                   <form name="login" method="post">
                     <div class="row">
@@ -25,15 +25,15 @@
                       </div>
                       <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 form-group">
                           <div class="form-group">
-                              <label for="pswd">City:</label>
-                              <select name="usertype" class="form-control">
-                              <option selected>Select City</option>
-                              <option value="user">Ahmedabad</option>
-                              <option value="baroda">Baroda</option>
-                              <option value="bhavnagar">Bhavnagar</option>
-                              <option value="rajkot">Rajkot</option>
-                              <option value="surat">Surat</option>
-                              </select>
+                              <label for="city">City:</label>
+                              <select name="city" class="form-control">
+                                <option selected>Select City</option>
+                                <option value="ahmedabad" selected>Ahmedabad</option>
+                                <option value="baroda" disabled>Baroda</option>
+                                <option value="bhavnagar" disabled>Bhavnagar</option>
+                                <option value="rajkot" disabled>Rajkot</option>
+                                <option value="surat" disabled>Surat</option>
+                            </select>
                           </div>
                       </div>
                   </div>
@@ -84,7 +84,7 @@
                   </div>
                       <div class="row">
                           <div class="text-center">
-                              <input type="submit" name="createdriver" value="Create" class="btn btn-primary">
+                              <input type="submit" name="createdriver" value="Update" class="btn btn-primary">
                           </div>
                       </div>
                   </form>

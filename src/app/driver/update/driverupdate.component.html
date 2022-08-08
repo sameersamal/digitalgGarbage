@@ -2,34 +2,30 @@
 <div class="container">
     <div class="content" role="main">
         <div class="panel">
-            <div class="panel-title text-center"><i class="fa fa-trash mr-5"></i> CREATE BIN</div>
+            <div class="panel-title text-center"><i class="fa fa-trash mr-5"></i> CREATE DRIVER</div>
             <div class="panel-body">
                   <form name="login" method="post">
                     <div class="row">
-                        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 form-group">
-                            <div class="form-group">
-                                <label for="bintype">Bin Type:</label>
-                                <select name="bintype" class="form-control">
-                                    <option selected>Select Bin</option>
-                                    <option value="drybin">Dry Bin (Blue)</option>
-                                    <option value="wetbin">Wet Bin (Green)</option>
-                                </select>
-                            </div>
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 form-group">
+                            <label for="usn">Name:</label>
+                            <input type="text" name="name" 
+                            class="form-control">
                         </div>
                         <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 form-group">
-                            <div class="form-group">
-                                <label for="pswd">Bin Size:</label>
-                                <select name="usertype" class="form-control">
-                                <option selected>Select Bin Size</option>
-                                <option value="lowload">Small (Lower Load)</option>
-                                <option value="mediumlaoad">Medium (Medium Load)</option>
-                                <option value="heavyload">High (Heavy Load)</option>
-                                </select>
-                            </div>
+                            <label for="age">Age:</label>
+                            <input type="text" name="age" 
+                            class="form-control">
                         </div>
-                    </div>  
-                    
-                    <div class="row">
+                        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 form-group">
+                            <label for="phone">Phone:</label>
+                            <input type="text" name="phone" 
+                            class="form-control">
+                        </div>
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 form-group">
+                            <label for="email">Email:</label>
+                            <input type="text" name="email" 
+                            class="form-control">
+                        </div>
                         <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 form-group">
                             <div class="form-group">
                                 <label for="area">Area:</label>
@@ -56,8 +52,6 @@
                                 </select>
                             </div>
                         </div>
-                    </div>
-                    <div class="row">
                         <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 form-group">
                             <div class="form-group">
                                 <label for="zone">Zone:</label>
@@ -71,39 +65,7 @@
                                 </select>
                             </div>
                         </div>
-                      <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 form-group">
-                          <div class="form-group">
-                              <label for="driver">Driver:</label>
-                              <select name="usertype" class="form-control">
-                              <option selected>Select Driver</option>
-                              <option value="driver1">Driver Name-1</option>
-                              <option value="driver2">Driver Name-2</option>
-                              <option value="driver3">Driver Name-3</option>
-                              <option value="driver4">Driver Name-4</option>
-                              <option value="driver5">Driver Name-5</option>
-                              </select>
-                          </div>
-                      </div>
                     </div>
-                  <div class="row">
-                      <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 form-group">
-                        <div class="form-group">
-                            <label for="pswd">Schedule:</label>
-                            <select name="usertype" class="form-control">
-                            <option selected>Select Schedule</option>
-                            <option value="user">Daily</option>
-                            <option value="user">Weekly</option>
-                            <option value="user">Monthly</option>
-                            </select>
-                        </div>
-                      </div>
-                      <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 form-group">
-                        <div class="form-group">
-                            <label for="notesremarks">Notes/Remarks</label>
-                            <textarea name="notesremarks" id="notesremarks" cols="30" rows="5" class="form-control"></textarea>
-                        </div>
-                      </div>
-                  </div>
                       <div class="row">
                           <div class="text-center">
                               <input type="submit" name="createdriver" value="Create" class="btn btn-primary">

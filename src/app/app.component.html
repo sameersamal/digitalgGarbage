@@ -7,18 +7,18 @@
 <!-- * * * * * * * to get started with your project! * * * * * * * * -->
 <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
 <!-- header -->
-<div class="header" role="banner">
-  <div ngClass="headericon"><i class="fa fa-trash"></i></div>
+<div ngClass="header" role="banner">
+  <div ngClass="headericon"><i ngClass="fa fa-trash"></i></div>
   <h2><a style="color:orange" routerLink="/login">Digital Garbage Collection</a></h2>
-    <div class="spacer"></div>
-    <nav class="nav nav-bar pull-right">
-      <ul class="nav-link">
-        <li class="list-item"><a routerLink="/login"><i class="fa fa-key"></i> Login</a></li>
+    <div ngClass="spacer"></div>
+    <nav ngClass="nav nav-bar pull-right">
+      <ul ngClass="nav-link">
+        <li ngClass="list-item"><a routerLink="/login"><i ngClass="fa fa-key"></i> Login</a></li>
       </ul>
     </nav>
 </div>
 
-<h1>Welcome! to our New App</h1>
+
 
 <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
 <!-- * * * * * * * * * * * The content above * * * * * * * * * * * -->
@@ -29,9 +29,10 @@
 <!-- * * * * * * * * * * End of Placeholder * * * * * * * * * * * -->
 <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
 
+<router-outlet></router-outlet>
+
+
 <!-- Footer -->
 <footer>
-    <h6><i class="fa fa-copyright"></i> Copyright 2022 - Digital Garbage Collection - Smart City</h6>
+  <h6><i class="fa fa-copyright"></i> Copyright 2022 - Digital Garbage Collection - Smart City</h6>
 </footer>
-
-<router-outlet></router-outlet>

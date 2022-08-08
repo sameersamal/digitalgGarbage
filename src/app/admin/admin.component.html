@@ -1,0 +1,169 @@
+<div class="container">
+    <div class="content" role="main">
+        <!-- <div ngClass="row">
+            <div ngClass="col-lg-12 col-md-12 col-sm-12 col-xs-12 text-right"><a routerLink="/bincreate" ngClass="btn btn-primary"><i ngClass="fa fa-angle-left mr-3"></i> Back</a></div>
+        </div> -->
+        <div ngClass="row">
+            <div ngClass="col-lg-4 col-md-4 col-sm-4 col-xs-6 text-center"><a routerLink="/bincreate" ngClass="btn btn-primary">Create Bin</a></div>
+            <div ngClass="col-lg-4 col-md-4 col-sm-4 col-xs-6 text-center"><a routerLink="/drivercreate" ngClass="btn btn-primary">Create Driver</a></div>
+            <div ngClass="col-lg-4 col-md-4 col-sm-4 col-xs-6 text-center"><a routerLink="/requestcreate" ngClass="btn btn-primary">Create Request</a></div>
+        </div>
+        <div class="spacer20"></div>
+        <div id="admintable">
+            <input type="text">
+            <div ngShow="check"></div>
+            <div ng-show="adminrequest">
+            <table id="adminrequesttable" class="request">
+                <thead>
+                    <tr><td colspan="5"><h3>Request Admin Panel</h3></td></tr>                    
+                    <tr>
+                        <td>No.</td>
+                        <td>Requests/Complaints</td>
+                        <td>Edit</td>
+                        <td>Remove</td>
+                        <td>Status</td>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor = "let requests of requestdata">
+                        <td>{{ requests.Requestno }}</td>
+                        <td>{{ requests.RequestName }}</td>
+                        <td><div class="text-center"><a routerLink="/requestupdate" class="btn btn-edit"><i class="fa fa-edit"></i></a></div></td>
+                        <td><div class="text-center"><a routerLink="/requestdelete" class="btn btn-edit"><i class="fa fa-trash"></i></a></div></td>
+                        <td>
+                            {{ requests.Status }}
+                            <!-- <div class="form-group">
+                                <select name="usertype" class="form-control">
+                                <option >Select Status</option>
+                                <option selected value="pending">Pending</option>
+                                <option value="partial">Partial</option>
+                                <option value="Completed">Completed</option>
+                                </select>
+                            </div> -->
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+
+            </div>
+
+            <table class="driver">
+                <thead>
+                    <tr><td colspan="4">Driver Admin Panel</td></tr>
+                    <tr>
+                        <td>No.</td>
+                        <td>Requests/Complaints</td>
+                        <td>Edit</td>
+                        <td>Status</td>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>001</td>
+                        <td>Pick-up of Trash from Girdharnagar Area</td>
+                        <td><div class="text-center"><a routerLink="/requestupdate" class="btn btn-edit"><i class="fa fa-edit"></i></a></div></td>
+                        <td>
+                            <div class="form-group">
+                                <select name="usertype" class="form-control">
+                                <option selected>Select Status</option>
+                                <option value="user">Pending</option>
+                                <option value="user">Partial</option>
+                                <option value="user">Completed</option>
+                                </select>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>002</td>
+                        <td>Removal of Trash Bin of Wet Garbage</td>
+                        <td><div class="text-center"><a routerLink="/requestupdate" class="btn btn-edit"><i class="fa fa-edit"></i></a></div></td>
+                        <td>
+                            <div class="form-group">
+                                <select name="usertype" class="form-control">
+                                <option selected>Select Status</option>
+                                <option value="user">Pending</option>
+                                <option value="user">Partial</option>
+                                <option value="user">Completed</option>
+                                </select>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>003</td>
+                        <td>Addition of Trash Bin for Dry Wastage</td>
+                        <td><div class="text-center"><a routerLink="/requestupdate" class="btn btn-edit"><i class="fa fa-edit"></i></a></div></td>
+                        <td>
+                            <div class="form-group">
+                                <select name="usertype" class="form-control">
+                                <option selected>Select Status</option>
+                                <option value="user">Pending</option>
+                                <option value="user">Partial</option>
+                                <option value="user">Completed</option>
+                                </select>
+                            </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <table class="bin">
+                <thead>
+                    <tr><td colspan="4">Bin Admin Panel</td></tr>
+                    <tr>
+                        <td>No.</td>
+                        <td>Requests/Complaints</td>
+                        <td>Edit</td>
+                        <td>Status</td>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>001</td>
+                        <td>Pick-up of Trash from Girdharnagar Area</td>
+                        <td><div class="text-center"><a routerLink="/requestupdate" class="btn btn-edit"><i class="fa fa-edit"></i></a></div></td>
+                        <td>
+                            <div class="form-group">
+                                <select name="usertype" class="form-control">
+                                <option selected>Select Status</option>
+                                <option value="user">Pending</option>
+                                <option value="user">Partial</option>
+                                <option value="user">Completed</option>
+                                </select>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>002</td>
+                        <td>Removal of Trash Bin of Wet Garbage</td>
+                        <td><div class="text-center"><a routerLink="/requestupdate" class="btn btn-edit"><i class="fa fa-edit"></i></a></div></td>
+                        <td>
+                            <div class="form-group">
+                                <select name="usertype" class="form-control">
+                                <option selected>Select Status</option>
+                                <option value="user">Pending</option>
+                                <option value="user">Partial</option>
+                                <option value="user">Completed</option>
+                                </select>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>003</td>
+                        <td>Addition of Trash Bin for Dry Wastage</td>
+                        <td><div class="text-center"><a routerLink="/requestupdate" class="btn btn-edit"><i class="fa fa-edit"></i></a></div></td>
+                        <td>
+                            <div class="form-group">
+                                <select name="usertype" class="form-control">
+                                <option selected>Select Status</option>
+                                <option value="user">Pending</option>
+                                <option value="user">Partial</option>
+                                <option value="user">Completed</option>
+                                </select>
+                            </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
