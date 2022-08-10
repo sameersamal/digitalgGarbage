@@ -4,27 +4,37 @@
         <div class="panel">
             <div class="panel-title text-center"><i class="fa fa-trash mr-5"></i> CREATE BIN</div>
             <div class="panel-body">
-                  <form name="login" method="post">
+                  <form name="login" method="post" #createbinform="ngForm" (ngSubmit)="createbin(createbinform)">
                     <div class="row">
                         <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 form-group">
                             <div class="form-group">
                                 <label for="bintype">Bin Type:</label>
-                                <select name="bintype" class="form-control">
+                                <select name="bintype" class="form-control" required ngModel #bintype=ngModel>
                                     <option selected>Select Bin</option>
                                     <option value="drybin">Dry Bin (Blue)</option>
                                     <option value="wetbin">Wet Bin (Green)</option>
                                 </select>
                             </div>
+                            <div *ngIf="bintype.invalid && (bintype.dirty || bintype.touched)" class="alert">
+                                <div *ngIf="bintype.errors?.['required']">
+                                    Bin Type is required.
+                                </div>
+                            </div>
                         </div>
                         <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 form-group">
                             <div class="form-group">
                                 <label for="pswd">Bin Size:</label>
-                                <select name="usertype" class="form-control">
+                                <select name="usertype" class="form-control" required ngModel #binsize=ngModel>
                                 <option selected>Select Bin Size</option>
                                 <option value="lowload">Small (Lower Load)</option>
                                 <option value="mediumlaoad">Medium (Medium Load)</option>
                                 <option value="heavyload">High (Heavy Load)</option>
                                 </select>
+                            </div>
+                            <div *ngIf="binsize.invalid && (binsize.dirty || binsize.touched)" class="alert">
+                                <div *ngIf="binsize.errors?.['required']">
+                                    Bin Size is required.
+                                </div>
                             </div>
                         </div>
                     </div>  
@@ -33,7 +43,7 @@
                         <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 form-group">
                             <div class="form-group">
                                 <label for="area">Area:</label>
-                                <select name="area" class="form-control">
+                                <select name="area" class="form-control" required ngModel #area=ngModel>
                                 <option selected>Select Area</option>
                                 <option value="ranip">Ranip</option>
                                 <option value="ghatlodia">Ghatlodia</option>
@@ -42,11 +52,16 @@
                                 <option value="memnanagar">Memnanagar</option>
                                 </select>
                             </div>
+                            <div *ngIf="area.invalid && (area.dirty || area.touched)" class="alert">
+                                <div *ngIf="area.errors?.['required']">
+                                    Area is required.
+                                </div>
+                            </div>
                         </div>
                         <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 form-group">
                             <div class="form-group">
                                 <label for="city">City:</label>
-                                <select name="city" class="form-control">
+                                <select name="city" class="form-control" required ngModel #city=ngModel>
                                     <option selected>Select City</option>
                                     <option value="ahmedabad" selected>Ahmedabad</option>
                                     <option value="baroda" disabled>Baroda</option>
@@ -55,13 +70,18 @@
                                     <option value="surat" disabled>Surat</option>
                                 </select>
                             </div>
+                            <div *ngIf="city.invalid && (city.dirty || city.touched)" class="alert">
+                                <div *ngIf="city.errors?.['required']">
+                                    City is required.
+                                </div>
+                            </div>
                         </div>
                     </div>
                     <div class="row">
                         <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 form-group">
                             <div class="form-group">
                                 <label for="zone">Zone:</label>
-                                <select name="zone" class="form-control">
+                                <select name="zone" class="form-control" required ngModel #zone=ngModel>
                                 <option selected>Select Zone</option>
                                 <option value="northzone">North Zone</option>
                                 <option value="southzone">South Zone</option>
@@ -70,11 +90,16 @@
                                 <option value="centralzone">Central Zone</option>
                                 </select>
                             </div>
+                            <div *ngIf="zone.invalid && (zone.dirty || zone.touched)" class="alert">
+                                <div *ngIf="zone.errors?.['required']">
+                                    Zone is required.
+                                </div>
+                            </div>
                         </div>
                       <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 form-group">
                           <div class="form-group">
                               <label for="driver">Driver:</label>
-                              <select name="usertype" class="form-control">
+                              <select name="usertype" class="form-control" required ngModel #driver=ngModel>
                               <option selected>Select Driver</option>
                               <option value="driver1">Driver Name-1</option>
                               <option value="driver2">Driver Name-2</option>
@@ -83,19 +108,29 @@
                               <option value="driver5">Driver Name-5</option>
                               </select>
                           </div>
+                          <div *ngIf="driver.invalid && (driver.dirty || driver.touched)" class="alert">
+                            <div *ngIf="driver.errors?.['required']">
+                                Driver is required.
+                            </div>
+                          </div>
                       </div>
                     </div>
                   <div class="row">
                       <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 form-group">
                         <div class="form-group">
                             <label for="pswd">Schedule:</label>
-                            <select name="usertype" class="form-control">
+                            <select name="usertype" class="form-control" required ngModel #schedule=ngModel>
                             <option selected>Select Schedule</option>
                             <option value="user">Daily</option>
                             <option value="user">Weekly</option>
                             <option value="user">Monthly</option>
                             </select>
                         </div>
+                          <div *ngIf="schedule.invalid && (schedule.dirty || schedule.touched)" class="alert">
+                            <div *ngIf="schedule.errors?.['required']">
+                                Schedule is required.
+                            </div>
+                          </div>
                       </div>
                       <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 form-group">
                         <div class="form-group">
@@ -106,7 +141,7 @@
                   </div>
                       <div class="row">
                           <div class="text-center">
-                              <input type="submit" name="createdriver" value="Create" class="btn btn-primary">
+                              <input type="submit" name="createbin" value="Create" class="btn btn-primary" [disabled]="createbinform.invalid">
                           </div>
                       </div>
                   </form>

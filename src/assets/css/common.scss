@@ -6,6 +6,14 @@
 .spacer50 { float:left; height:50px; width:100% }
 .nopadding { padding:0px }
 
+/* Colors */
+$color-red: #FF0000;
+$color-gray: #999;
+$color-darkgray: #333;
+
+.alert { color: $color-red !important }
+
+
 h1, h2, h3, h4, h5, h6 { margin: 8px 0 }
 p { margin: 0; }
 .spacer { flex: 1; }

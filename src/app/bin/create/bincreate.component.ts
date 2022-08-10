@@ -7,7 +7,9 @@ import { Component, OnInit } from '@angular/core';
 })
 export class BinCreateComponent implements OnInit {
 
-  constructor() { }
+  createbin(form: { value: any; }) {
+    console.log (form.value);
+  }
 
   ngOnInit(): void {
   }
