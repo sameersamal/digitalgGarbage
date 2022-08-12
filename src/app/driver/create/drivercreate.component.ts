@@ -13,13 +13,8 @@ export class DriverCreateComponent implements OnInit {
     console.log (form.value);
   }
 
-
-
-
  ngOnInit(): void
  {
-
-  
 
  }
 

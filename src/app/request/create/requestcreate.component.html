@@ -1,0 +1,81 @@
+
+<div class="container">
+    <div class="content" role="main">
+        <div class="panel">
+            <div class="panel-title text-center"><i class="fa fa-trash mr-5"></i> CREATE REQUEST</div>
+            <div class="panel-body">
+                  <form name="bin" #requestform="ngForm" (ngSubmit)="createrequest(requestform)">
+                    <div class="row">
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 form-group">
+                          <label for="requesttitle">Title:</label>
+                          <input type="text" name="request" class="form-control" required ngModel #requestitle=ngModel>
+                          <div *ngIf="requestitle.invalid && (requestitle.dirty || requestitle.touched)" class="alert">
+                            <div *ngIf="requestitle.errors?.['required']">
+                                Request Title is required
+                            </div>
+                          </div>
+                        </div>
+                    </div>                    
+                    <div class="row">
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 form-group">
+                          <div class="form-group">
+                              <label for="requesttype">Request Type:</label>
+                              <select name="requesttype" class="form-control" required ngModel #requestype=ngModel>
+                              <option selected>Select Request/Complaint</option>
+                              <option value="user">Request</option>
+                              <option value="baroda">Complaint</option>
+                              </select>
+                          </div>
+                          <div *ngIf="requestype.invalid && (requestype.dirty || requestype.touched)" class="alert">
+                            <div *ngIf="requestype.errors?.['required']">
+                                Select Request Type
+                            </div>
+                          </div>
+                      </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 form-group">
+                      <label for="requestsubject">Subject:</label>
+                      <select name="requestsubject" class="form-control" required ngModel #requestsubject=ngModel>
+                        <option selected>Select Subject</option>
+                        <option value="addremovebin">Add/Remove Bin</option>
+                        <option value="addremovedriver">Add/Remove Driver</option>
+                        <option value="addremovedriver">Other</option>
+                      </select>
+                      <div *ngIf="requestsubject.invalid && (requestsubject.dirty || requestsubject.touched)" class="alert">
+                        <div *ngIf="requestsubject.errors?.['required']">
+                            Subject is Required
+                        </div>
+                      </div>
+                    </div>
+                </div>
+
+                  <div class="row">
+                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 form-group">
+                        <div class="form-group">
+                            <label for="description">Detail Description:</label>
+                            <textarea name="description" id="description" cols="30" rows="10" class="form-control" required ngModel #description=ngModel></textarea>
+                            <small><i>Not more than 100 words</i></small>
+                            <div *ngIf="description.invalid && (description.dirty || description.touched)" class="alert">
+                              <div *ngIf="description.errors?.['required']">
+                                  Detail Description is required.
+                              </div>
+                            </div>
+                        </div>
+                      </div>
+                  </div>
+                      <div class="row">
+                          <div class="text-center">
+                              <div *ngIf="requestform.invalid">
+                                <input type="submit" name="createrequest" value="Create" class="btn btn-primary" [disabled]="requestform.invalid">
+                              </div>
+                              <div *ngIf="requestform.valid" nghide="createbin">
+                                <input type="submit" name="createrequest" value="Create" class="btn btn-success">
+                              </div>
+                          </div>
+                      </div>
+                  </form>
+            </div>
+        </div>
+      </div>
+    </div>

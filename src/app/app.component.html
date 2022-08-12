@@ -11,8 +11,13 @@
   <div ngClass="headericon"><i ngClass="fa fa-trash"></i></div>
   <h2><a style="color:orange" routerLink="/login">Digital Garbage Collection</a></h2>
     <div ngClass="spacer"></div>
-    <nav ngClass="nav nav-bar pull-right">
+    
+    <nav id="topnav" ngClass="nav nav-bar pull-right">
       <ul ngClass="nav-link">
+        <li ngClass="list-item"><a routerLink="/dashboard"><i ngClass="fa fa-desktop"></i> Dashboard</a></li>
+        <li ngClass="list-item"><a routerLink="/drivercreate"><i ngClass="fa fa-truck"></i> Driver</a></li>
+        <li ngClass="list-item"><a routerLink="/bincreate"><i ngClass="fa fa-trash"></i> Bin</a></li>
+        <li ngClass="list-item"><a routerLink="/requestcreate"><i ngClass="fa fa-file"></i> Request</a></li>
         <li ngClass="list-item"><a routerLink="/login"><i ngClass="fa fa-key"></i> Login</a></li>
       </ul>
     </nav>

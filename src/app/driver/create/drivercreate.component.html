@@ -9,8 +9,8 @@
                         <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 form-group">
                     <!-- Name -->
                             <label for="name">Name:</label>
-                            <input type="text" id="name" name="drivername" class="form-control" required minlength="4" pattern="[a-zA-Z][a-zA-Z]+" ngModel #drivername=ngModel> 
-                            <div *ngIf="drivername.invalid && (drivername.dirty || drivername.touched)" class="alert" style="color:#ff0000">
+                            <input type="text" id="name" name="drivername" class="form-control" required minlength="4" pattern="[a-zA-Z][a-zA-Z]+" ngModel #drivername=ngModel>
+                            <div *ngIf="drivername.invalid && (drivername.dirty || drivername.touched)" class="alert">
                                 <div *ngIf="drivername.errors?.['required']">
                                     Driver Name is required.
                                 </div>
@@ -23,13 +23,10 @@
                     <!-- DOB -->
                         <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 form-group">
                             <label for="dob">DOB:</label>
-                            <input type="date" name="driverdob" class="form-control" required pattern="[0-9]*" ngModel #driverdob=ngModel>
-                            <div *ngIf="driverdob.invalid && (driverdob.dirty || driverdob.touched)" class="alert" style="color:#ff0000">
+                            <input type="date" name="driverdob" class="form-control" required ngModel #driverdob=ngModel>
+                            <div *ngIf="driverdob.invalid && (driverdob.dirty || driverdob.touched)" class="alert">
                                 <div *ngIf="driverdob.errors?.['required']">
                                     DOB is required.
-                                </div>
-                                <div *ngIf="driverdob.errors?.['pattern']">
-                                    DOB is in invalid format... Please enter in DD-MM-YYYY format
                                 </div>
                             </div>
                         </div>
@@ -38,7 +35,7 @@
                         <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 form-group">
                             <label for="phone">Phone:</label>
                             <input type="text" name="driverphone" class="form-control" required maxlength="10" pattern="[0-9]*" ngModel #driverphone=ngModel>
-                            <div *ngIf="driverphone.invalid && (driverphone.dirty || driverphone.touched)" class="alert" style="color:#ff0000">
+                            <div *ngIf="driverphone.invalid && (driverphone.dirty || driverphone.touched)" class="alert">
                                 <div *ngIf="driverphone.errors?.['required']">
                                     Phone is required.
                                 </div>
@@ -54,13 +51,10 @@
                     <!-- E-mail -->
                         <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 form-group">
                             <label for="email">Email:</label>
-                            <input type="text" name="driveremail" class="form-control" required pattern="/^[a-zA-Z0-9.! #$%&'*+/=? ^_`{|}~-]+@[a-zA-Z0-9-]+(?:\. [a-zA-Z0-9-]+)*$/"  ngModel #driveremail=ngModel>
-                            <div *ngIf="driveremail.invalid && (driveremail.dirty || driveremail.touched)" class="alert" style="color:#ff0000">
+                            <input type="text" name="driveremail" class="form-control" required ngModel #driveremail=ngModel>
+                            <div *ngIf="driveremail.invalid && (driveremail.dirty || driveremail.touched)" class="alert">
                                 <div *ngIf="driveremail.errors?.['required']">
                                     E-mail is required.
-                                </div>
-                                <div *ngIf="driveremail.errors?.['pattern']">
-                                    Please enter valid E-mail ID
                                 </div>
                             </div>
                         </div>
@@ -69,7 +63,7 @@
                         <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 form-group">
                             <div class="form-group">
                                 <label for="driverarea">Area:</label>
-                                <select name="driverarea" class="form-control" ngModel #driverarea=ngModel>
+                                <select name="driverarea" class="form-control" required ngModel #driverarea=ngModel>
                                     <option selected>Select Area</option>
                                     <option value="ranip">Ranip</option>
                                     <option value="ghatlodia">Ghatlodia</option>
@@ -78,7 +72,7 @@
                                     <option value="memnanagar">Memnanagar</option>
                                 </select>
                             </div>
-                            <div *ngIf="driverarea.invalid && (driveremail.dirty || driverarea.touched)" class="alert" style="color:#ff0000">
+                            <div *ngIf="driverarea.invalid && (driveremail.dirty || driverarea.touched)" class="alert">
                                 <div *ngIf="driverarea.errors?.['required']">
                                     Area is required.
                                 </div>
@@ -89,12 +83,12 @@
                         <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 form-group">
                             <div class="form-group">
                                 <label for="drivercity">City:</label>
-                                <select name="drivercity" class="form-control" ngModel #drivercity=ngModel>
+                                <select name="drivercity" class="form-control" required ngModel #drivercity=ngModel>
                                     <option selected>Select City</option>
                                     <option value="ahmedabad" selected>Ahmedabad</option>
                                 </select>
                             </div>
-                            <div *ngIf="drivercity.invalid && (drivercity.dirty || drivercity.touched)" class="alert" style="color:#ff0000">
+                            <div *ngIf="drivercity.invalid && (drivercity.dirty || drivercity.touched)" class="alert">
                                 <div *ngIf="drivercity.errors?.['required']">
                                     City is required.
                                 </div>
@@ -105,7 +99,7 @@
                         <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 form-group">
                             <div class="form-group">
                                 <label for="driverzone">Zone:</label>
-                                <select name="driverzone" class="form-control" ngModel #driverzone=ngModel>
+                                <select name="driverzone" class="form-control" required ngModel #driverzone=ngModel>
                                 <option selected>Select Zone</option>
                                 <option value="northzone">North Zone</option>
                                 <option value="southzone">South Zone</option>
@@ -114,19 +108,23 @@
                                 <option value="centralzone">Central Zone</option>
                                 </select>
                             </div>
-                            <div *ngIf="driverzone.invalid && (driverzone.dirty || driverzone.touched)" class="alert" style="color:#ff0000">
+                            <div *ngIf="driverzone.invalid && (driverzone.dirty || driverzone.touched)" class="alert">
                                 <div *ngIf="driverzone.errors?.['required']">
                                     Zone is required.
-                                </div>
-                                <div *ngIf="driveremail.errors?.['pattern']">
-                                    Please enter valid E-mail ID
                                 </div>
                             </div>
                         </div>
                         
                         <div class="row">
                           <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 form-group text-center">
-                              <input type="submit" name="createdriverbutton" value="Create" class="btn btn-primary" [disabled]="createdriverform.invalid">
+                            <div class="text-center">
+                                <div *ngIf="createdriverform.invalid">
+                                  <input type="submit" name="createdriverbutton" value="Create" class="btn btn-primary" [disabled]="createdriverform.invalid">
+                                </div>
+                                <div *ngIf="createdriverform.valid" nghide="createbin">
+                                  <input type="submit" name="createdriverbutton" value="Create" class="btn btn-success">
+                                </div>
+                            </div>
                           </div>
                         </div>
                     </div>
