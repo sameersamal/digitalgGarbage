@@ -1,169 +1,150 @@
-<div class="container">
-    <div class="content" role="main">
-        <!-- <div ngClass="row">
-            <div ngClass="col-lg-12 col-md-12 col-sm-12 col-xs-12 text-right"><a routerLink="/bincreate" ngClass="btn btn-primary"><i ngClass="fa fa-angle-left mr-3"></i> Back</a></div>
-        </div> -->
-        <div ngClass="row">
-            <div ngClass="col-lg-4 col-md-4 col-sm-4 col-xs-6 text-center"><a routerLink="/bincreate" ngClass="btn btn-primary">Create Bin</a></div>
-            <div ngClass="col-lg-4 col-md-4 col-sm-4 col-xs-6 text-center"><a routerLink="/drivercreate" ngClass="btn btn-primary">Create Driver</a></div>
-            <div ngClass="col-lg-4 col-md-4 col-sm-4 col-xs-6 text-center"><a routerLink="/requestcreate" ngClass="btn btn-primary">Create Request</a></div>
-        </div>
-        <div class="spacer20"></div>
-        <div id="admintable">
-            <input type="text">
-            <div ngShow="check"></div>
-            <div ng-show="adminrequest">
-            <table id="adminrequesttable" class="request">
-                <thead>
-                    <tr><td colspan="5"><h3>Request Admin Panel</h3></td></tr>                    
-                    <tr>
-                        <td>No.</td>
-                        <td>Requests/Complaints</td>
-                        <td>Edit</td>
-                        <td>Remove</td>
-                        <td>Status</td>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr *ngFor = "let requests of requestdata">
-                        <td>{{ requests.Requestno }}</td>
-                        <td>{{ requests.RequestName }}</td>
-                        <td><div class="text-center"><a routerLink="/requestupdate" class="btn btn-edit"><i class="fa fa-edit"></i></a></div></td>
-                        <td><div class="text-center"><a routerLink="/requestdelete" class="btn btn-edit"><i class="fa fa-trash"></i></a></div></td>
-                        <td>
-                            {{ requests.Status }}
-                            <!-- <div class="form-group">
-                                <select name="usertype" class="form-control">
-                                <option >Select Status</option>
-                                <option selected value="pending">Pending</option>
-                                <option value="partial">Partial</option>
-                                <option value="Completed">Completed</option>
-                                </select>
-                            </div> -->
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
 
+
+<div class="container">  
+    <div class="content admintable" role="main">
+        <h2>Admin Panel</h2>
+        <div class="spacer50"></div>
+            <ul class="nav nav-tabs">
+                <li class="active"><a data-toggle="tab" href="#driver"><i class="fa fa-truck"></i>  Driver</a></li>
+                <li><a data-toggle="tab" href="#bin"><i class="fa fa-trash"></i>  Bin</a></li>
+                <li><a data-toggle="tab" href="#request"><i class="fa fa-file"></i>  Request</a></li>
+                <!-- <li><a data-toggle="tab" href="#report">Report</a></li> -->
+            </ul>
+            <div class="tab-content">
+                <!--- Driver Tab -->
+                <div id="driver" class="tab-pane fade in active">
+                    <div class="spacer40"></div>
+                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 text-center">
+                        <div class="pull-left"><input type="text" name="filter" class="form-control" placeholder="Filter by" ngModel #filterdata=ngModel></div>
+                        <div class="pull-right"><a routerLink="/drivercreate" class="btn btn-success">Create Driver</a></div>
+                        <div class="pull-right"><a routerLink="/driverreportcreate" class="btn btn-success">Create Report</a></div>
+                    </div>            
+                    <div class="spacer20"></div>
+                    <div class="admintable">
+                        <table id="adminrequesttable" class="request">
+                            <thead>
+                                <tr>
+                                    <td>No.</td>
+                                    <td>Name</td>
+                                    <td>Shift</td>
+                                    <td>Status</td>
+                                    <td>Route</td>
+                                    <td>Driver</td>
+                                    <td>Change</td>
+                                    <td>Remove</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr *ngFor = "let drivers of driversdata">
+                                    <td>{{ drivers.DriverId }}</td>
+                                    <td>{{ drivers.DriverName }}</td>
+                                    <td align="center">{{ drivers.DriverShift }}</td>
+                                    <td align="center">{{ drivers.DriverStatus }}</td>
+                                    <!-- Route Assign -->
+                                    <td align="center" *ngIf="drivers.DriverStatus == 'Assigned' && drivers.DriverRoute == 'Assigned'"><a href="/driverroute" class="btn btn-primary">Detail</a></td>
+                                    <td align="center" *ngIf="drivers.DriverStatus == 'Available' && drivers.DriverRoute == 'Not-Assigned'"><a href="/driverroute" class="btn btn-primary">Assign</a></td>
+
+                                    <td align="center" *ngIf="drivers.DriverStatus == 'Assigned' && drivers.DriverRoute == 'Not-Assigned'"><a href="/driverroute" class="btn btn-primary">Assign</a></td>
+                                    <td align="center" *ngIf="drivers.DriverStatus == 'Assigned' && drivers.DriverRoute == 'Not-Assigned'"><a href="/driverdetail" class="btn btn-primary">Detail</a></td>
+                                    <!-- Driver Assign -->
+                                    <td align="center" *ngIf="drivers.DriverStatus == 'Assigned' && drivers.DriverRoute == 'Assigned'"><a href="/driverroute" class="btn btn-primary">Re-Assign</a></td>
+                                    <td align="center" *ngIf="drivers.DriverStatus == 'Available'"><a href="/driverassign" class="btn btn-primary">Assign</a></td>
+                                    <!-- Driver Re-Assign -->
+                                    <td align="center" *ngIf="drivers.DriverStatus == 'On-Leave'"><span class="alert">Not-Available</span></td>
+                                    <td align="center" *ngIf="drivers.DriverStatus == 'On-Leave'"><span class="Alert">Not-Available</span></td>
+                                    <td><div class="text-center"><a routerLink="/driverupdate" class="btn btn-edit"><i class="fa fa-edit"></i></a></div></td>
+                                    <td><div class="text-center"><a routerLink="/driverdelete" class="btn btn-edit"><i class="fa fa-trash"></i></a></div></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                
+                <!--- Bin Tab -->
+                <div id="bin" class="tab-pane fade">
+                    <div class="spacer40"></div>
+                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 text-center">
+                        <div class="pull-left"><input type="text" name="filter" class="form-control" placeholder="Filter by" ngModel #filterdata=ngModel></div>
+                        <div class="pull-right"><a routerLink="/bincreate" class="btn btn-success">Create Bin</a></div>    
+                    </div>            
+                    <div class="spacer20"></div>
+                    <div class="admintable">
+                        <table id="adminrequesttable" class="request">
+                            <thead>
+                                <tr>
+                                    <td>No.</td>
+                                    <td>Bin Type</td>
+                                    <td>Bin Size</td>
+                                    <td>Area</td>
+                                    <td>Zone</td>
+                                    <td>Driver</td>
+                                    <td>Schedule</td>
+                                    <td>Change</td>
+                                    <td>Remove</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr *ngFor = "let bin of bindata">
+                                    <td>{{ bin.BinId }}</td>
+                                    <td>{{ bin.BinType }}</td>
+                                    <td>{{ bin.BinSize }}</td>
+                                    <td>{{ bin.BinArea }}</td>
+                                    <td>{{ bin.BinZone }}</td>
+                                    <td>{{ bin.BinDriver }}</td>
+                                    <td>{{ bin.BinSchedule }}</td>
+                                    <td><div class="text-center"><a routerLink="/binupdate" class="btn btn-edit"><i class="fa fa-edit"></i></a></div></td>
+                                    <td><div class="text-center"><a routerLink="/bindelete" class="btn btn-edit"><i class="fa fa-trash"></i></a></div></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <!--- Request Tab -->
+                <div id="request" class="tab-pane fade">
+                    <div class="spacer40"></div>
+                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 text-center">
+                        <div class="pull-left"><input type="text" name="filter" class="form-control" placeholder="Filter by" ngModel #filterdata=ngModel></div>
+                        <div class="pull-right"><a routerLink="/requestcreate" class="btn btn-success">Create Request</a></div>
+                        <div class="pull-right"><a routerLink="/driverreportcreate" class="btn btn-success">Create Report</a></div>    
+                    </div>
+                    <div class="spacer20"></div>   
+                    <div class="admintable">
+                        <table id="adminrequesttable" class="request">
+                            <thead>
+                                <tr>
+                                    <td>No.</td>
+                                    <td>Type</td>
+                                    <td>Subject</td>
+                                    <td>Title</td>
+                                    <td>Detail</td>
+                                    <td>Driver</td>
+                                    <td>Change</td>
+                                    <td>Remove</td>
+                                    <td>Status</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr *ngFor = "let requests of requestdata">
+                                    <td>{{ requests.Requestno }}</td>
+                                    <td align="center">{{ requests.RequestType }}</td>
+                                    <td>{{ requests.RequestSubject }}</td>
+                                    <td>{{ requests.RequestTitle }}</td>
+                                    <td>{{ requests.RequestDetail }}</td>
+                                    <td align="center" *ngIf="requests.RequestStatus == 'Pending'"><a href="/driverassign" class="btn btn-primary">Assign</a></td>
+                                    <td align="center" *ngIf="requests.RequestStatus == 'Partial'"><a href="/driverchange" class="btn btn-primary">Re-Assign</a></td>
+                                    <td align="center" *ngIf="requests.RequestStatus == 'Completed'">Not Applicable</td>
+                                    <td><div class="text-center"><a routerLink="/requestupdate" class="btn btn-edit"><i class="fa fa-edit"></i></a></div></td>
+                                    <td><div class="text-center"><a routerLink="/requestdelete" class="btn btn-edit"><i class="fa fa-trash"></i></a></div></td>
+                                    <td>
+                                        {{ requests.RequestStatus }}
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
             </div>
-
-            <table class="driver">
-                <thead>
-                    <tr><td colspan="4">Driver Admin Panel</td></tr>
-                    <tr>
-                        <td>No.</td>
-                        <td>Requests/Complaints</td>
-                        <td>Edit</td>
-                        <td>Status</td>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>001</td>
-                        <td>Pick-up of Trash from Girdharnagar Area</td>
-                        <td><div class="text-center"><a routerLink="/requestupdate" class="btn btn-edit"><i class="fa fa-edit"></i></a></div></td>
-                        <td>
-                            <div class="form-group">
-                                <select name="usertype" class="form-control">
-                                <option selected>Select Status</option>
-                                <option value="user">Pending</option>
-                                <option value="user">Partial</option>
-                                <option value="user">Completed</option>
-                                </select>
-                            </div>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>002</td>
-                        <td>Removal of Trash Bin of Wet Garbage</td>
-                        <td><div class="text-center"><a routerLink="/requestupdate" class="btn btn-edit"><i class="fa fa-edit"></i></a></div></td>
-                        <td>
-                            <div class="form-group">
-                                <select name="usertype" class="form-control">
-                                <option selected>Select Status</option>
-                                <option value="user">Pending</option>
-                                <option value="user">Partial</option>
-                                <option value="user">Completed</option>
-                                </select>
-                            </div>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>003</td>
-                        <td>Addition of Trash Bin for Dry Wastage</td>
-                        <td><div class="text-center"><a routerLink="/requestupdate" class="btn btn-edit"><i class="fa fa-edit"></i></a></div></td>
-                        <td>
-                            <div class="form-group">
-                                <select name="usertype" class="form-control">
-                                <option selected>Select Status</option>
-                                <option value="user">Pending</option>
-                                <option value="user">Partial</option>
-                                <option value="user">Completed</option>
-                                </select>
-                            </div>
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
-
-            <table class="bin">
-                <thead>
-                    <tr><td colspan="4">Bin Admin Panel</td></tr>
-                    <tr>
-                        <td>No.</td>
-                        <td>Requests/Complaints</td>
-                        <td>Edit</td>
-                        <td>Status</td>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>001</td>
-                        <td>Pick-up of Trash from Girdharnagar Area</td>
-                        <td><div class="text-center"><a routerLink="/requestupdate" class="btn btn-edit"><i class="fa fa-edit"></i></a></div></td>
-                        <td>
-                            <div class="form-group">
-                                <select name="usertype" class="form-control">
-                                <option selected>Select Status</option>
-                                <option value="user">Pending</option>
-                                <option value="user">Partial</option>
-                                <option value="user">Completed</option>
-                                </select>
-                            </div>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>002</td>
-                        <td>Removal of Trash Bin of Wet Garbage</td>
-                        <td><div class="text-center"><a routerLink="/requestupdate" class="btn btn-edit"><i class="fa fa-edit"></i></a></div></td>
-                        <td>
-                            <div class="form-group">
-                                <select name="usertype" class="form-control">
-                                <option selected>Select Status</option>
-                                <option value="user">Pending</option>
-                                <option value="user">Partial</option>
-                                <option value="user">Completed</option>
-                                </select>
-                            </div>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>003</td>
-                        <td>Addition of Trash Bin for Dry Wastage</td>
-                        <td><div class="text-center"><a routerLink="/requestupdate" class="btn btn-edit"><i class="fa fa-edit"></i></a></div></td>
-                        <td>
-                            <div class="form-group">
-                                <select name="usertype" class="form-control">
-                                <option selected>Select Status</option>
-                                <option value="user">Pending</option>
-                                <option value="user">Partial</option>
-                                <option value="user">Completed</option>
-                                </select>
-                            </div>
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
     </div>
 </div>

@@ -61,7 +61,6 @@
 
                     <!-- Area -->
                         <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 form-group">
-                            <div class="form-group">
                                 <label for="driverarea">Area:</label>
                                 <select name="driverarea" class="form-control" required ngModel #driverarea=ngModel>
                                     <option selected>Select Area</option>
@@ -71,33 +70,28 @@
                                     <option value="naranpura">Naranpura</option>
                                     <option value="memnanagar">Memnanagar</option>
                                 </select>
-                            </div>
-                            <div *ngIf="driverarea.invalid && (driveremail.dirty || driverarea.touched)" class="alert">
-                                <div *ngIf="driverarea.errors?.['required']">
-                                    Area is required.
+                                <div *ngIf="driverarea.invalid && (driveremail.dirty || driverarea.touched)" class="alert">
+                                    <div *ngIf="driverarea.errors?.['required']">
+                                        Area is required.
+                                    </div>
                                 </div>
-                            </div>
                         </div>
 
                     <!-- City -->
-                        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 form-group">
-                            <div class="form-group">
-                                <label for="drivercity">City:</label>
-                                <select name="drivercity" class="form-control" required ngModel #drivercity=ngModel>
-                                    <option selected>Select City</option>
-                                    <option value="ahmedabad" selected>Ahmedabad</option>
-                                </select>
+                            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 form-group">
+                                    <label for="drivercity">City:</label>
+                                    <select name="drivercity" class="form-control" required ngModel #drivercity=ngModel>
+                                        <option selected>Select City</option>
+                                        <option value="ahmedabad" selected>Ahmedabad</option>
+                                    </select>
+                                    <div *ngIf="drivercity.invalid && (drivercity.dirty || drivercity.touched)" class="alert">
+                                        <div *ngIf="drivercity.errors?.['required']">
+                                            City is required.
+                                        </div>
+                                    </div>
                             </div>
-                            <div *ngIf="drivercity.invalid && (drivercity.dirty || drivercity.touched)" class="alert">
-                                <div *ngIf="drivercity.errors?.['required']">
-                                    City is required.
-                                </div>
-                            </div>
-                        </div>
-                    
                     <!-- Zone -->    
                         <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 form-group">
-                            <div class="form-group">
                                 <label for="driverzone">Zone:</label>
                                 <select name="driverzone" class="form-control" required ngModel #driverzone=ngModel>
                                 <option selected>Select Zone</option>
@@ -107,24 +101,21 @@
                                 <option value="eastzone">East Zone</option>
                                 <option value="centralzone">Central Zone</option>
                                 </select>
-                            </div>
-                            <div *ngIf="driverzone.invalid && (driverzone.dirty || driverzone.touched)" class="alert">
-                                <div *ngIf="driverzone.errors?.['required']">
-                                    Zone is required.
+                                <div *ngIf="driverzone.invalid && (driverzone.dirty || driverzone.touched)" class="alert">
+                                    <div *ngIf="driverzone.errors?.['required']">
+                                        Zone is required.
+                                    </div>
                                 </div>
-                            </div>
                         </div>
                         
                         <div class="row">
                           <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 form-group text-center">
-                            <div class="text-center">
                                 <div *ngIf="createdriverform.invalid">
                                   <input type="submit" name="createdriverbutton" value="Create" class="btn btn-primary" [disabled]="createdriverform.invalid">
                                 </div>
                                 <div *ngIf="createdriverform.valid" nghide="createbin">
                                   <input type="submit" name="createdriverbutton" value="Create" class="btn btn-success">
                                 </div>
-                            </div>
                           </div>
                         </div>
                     </div>

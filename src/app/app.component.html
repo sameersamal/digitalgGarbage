@@ -7,20 +7,39 @@
 <!-- * * * * * * * to get started with your project! * * * * * * * * -->
 <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
 <!-- header -->
-<div ngClass="header" role="banner">
-  <div ngClass="headericon"><i ngClass="fa fa-trash"></i></div>
-  <h2><a style="color:orange" routerLink="/login">Digital Garbage Collection</a></h2>
-    <div ngClass="spacer"></div>
-    
-    <nav id="topnav" ngClass="nav nav-bar pull-right">
-      <ul ngClass="nav-link">
-        <li ngClass="list-item"><a routerLink="/dashboard"><i ngClass="fa fa-desktop"></i> Dashboard</a></li>
-        <li ngClass="list-item"><a routerLink="/drivercreate"><i ngClass="fa fa-truck"></i> Driver</a></li>
-        <li ngClass="list-item"><a routerLink="/bincreate"><i ngClass="fa fa-trash"></i> Bin</a></li>
-        <li ngClass="list-item"><a routerLink="/requestcreate"><i ngClass="fa fa-file"></i> Request</a></li>
-        <li ngClass="list-item"><a routerLink="/login"><i ngClass="fa fa-key"></i> Login</a></li>
-      </ul>
-    </nav>
+<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+<div class="header" role="banner">
+  <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+    <div class="headericon"><i class="fa fa-trash"></i></div>
+    <h2><a style="color:orange" routerLink="/login">Location based Garbage Management System for Smart City</a></h2>
+    <div class="spacer"></div>
+  </div>
+    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+      <nav id="topnav" class="nav nav-bar pull-right">
+        <ul class="nav-link">
+          <li class="list-item">
+            <div *ngIf="isUserLoggedIn; else isLogOut">
+              <a class="nav-link" routerLink="/dashboard"><i class="fa fa-desktop"></i> Dashboard</a>
+            </div>
+            <ng-template #isLogOut>
+              <a class="nav-link" routerLink="/dashboard" style="display:none"><i class="fa fa-desktop"></i> Dashboard</a>
+            </ng-template>
+          </li>
+          <li class="list-item"><a routerLink="/drivercreate"><i class="fa fa-truck"></i> Driver</a></li>
+          <li class="list-item"><a routerLink="/bincreate"><i class="fa fa-trash"></i> Bin</a></li>
+          <li class="list-item"><a routerLink="/requestcreate"><i class="fa fa-file"></i> Request</a></li>
+          <li class="list-item">
+            <div *ngIf="isUserLoggedIn; else isLogOut">
+              <a class="nav-link" routerLink="/logout"><i class="fa fa-key"></i> Logout</a>
+            </div>
+            <ng-template #isLogOut>
+              <a class="nav-link" routerLink="/login"><i class="fa fa-lock"></i> Login</a>
+            </ng-template>
+          </li>
+        </ul>
+      </nav>
+    </div>
+</div>
 </div>
 
 
@@ -39,5 +58,5 @@
 
 <!-- Footer -->
 <footer>
-  <h6><i class="fa fa-copyright"></i> Copyright 2022 - Digital Garbage Collection - Smart City</h6>
+  <h6><i class="fa fa-copyright"></i> Copyright 2022 - Location based Garbage Management System for Smart City</h6>
 </footer>

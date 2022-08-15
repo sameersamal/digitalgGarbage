@@ -2,30 +2,87 @@
 <div class="container">
 <div class="content" role="main">
     <div class="panel">
-        <div class="panel-title text-center"><i class="fa fa-key mr-5"></i> LOGIN</div>
+        <div class="panel-title text-center"><span class="text-center fontawesomeicon"><i class="fa fa-lock"></i>&nbsp; &nbsp; Login</span></div>
         <div class="panel-body">
-              <form name="login" method="post">
+          <form [formGroup]="loginformData" (ngSubmit)="onClickSubmit(loginformData.value)">
+            <div class="form-group">
+              <label for="username">User Name:</label>
+              <input type="text" id="username" class="form-control" formControlName="userName" placeholder="User Name" required autofocus>
+              <div *ngIf="userName.invalid && (userName.dirty || userName.touched)">
+                <div *ngIf="userName.errors?.['required']" class="alert">
+                    User Name is required.
+                </div>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="userpassword">Password:</label>
+              <input type="password" id="userpassword" class="form-control" formControlName="userpassword" placeholder="Password" required minlength="8">
+              <div *ngIf="userPassword.invalid && (userPassword.dirty || userPassword.touched)">
+                <div *ngIf="userPassword.errors?.['required']" class="alert">
+                    Password is required.
+                </div>
+                <div *ngIf="userPassword.errors?.['minlength']" class="alert">
+                    Minimum 8 character long password is required
+                </div>
+              </div>
+            </div>
+              <!-- <div *ngIf="loginformData.invalid">
+                <button class="btn btn-lg btn-primary btn-block" type="submit">Login</button>
+              </div> -->
+              <button class="btn btn-lg btn-success" type="submit">Login</button>
+              <!-- <div class="form-group">
+                <div class="text-center" *ngIf="loginformData.valid">
+                  <button class="btn btn-lg btn-success" type="submit">Login</button>
+                </div>
+                <div class="text-center" *ngIf="loginformData.invalid">
+                  <button class="btn btn-lg btn-primary" type="submit" [disabled]="loginformData.invalid">Login</button>
+                </div>
+              </div> -->
+              <!-- <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button> -->
+          </form>
+              <!-- <form name="login" #loginform="ngForm" (ngSubmit)="loginformsubmit(loginform)">
                 <div class="form-group">
                   <label for="usn">User Name:</label>
-                  <input type="text" name="username" class="form-control">
+                  <input type="text" name="username" class="form-control" required autofocus ngModel #username=ngModel>
+                  <div *ngIf="username.invalid && (username.dirty || username.touched)">
+                    <div *ngIf="username.errors?.['required']" class="alert">
+                        User Password is required.
+                    </div>
+                  </div>
                 </div>
                 <div class="form-group">
                   <label for="pswd">Password:</label>
-                  <input type="password" name="password" class="form-control">
+                  <input type="password" name="password" class="form-control"  required ngModel #userpassword=ngModel>
+                  <div *ngIf="userpassword.invalid && (userpassword.dirty || userpassword.touched)">
+                    <div *ngIf="userpassword.errors?.['required']" class="alert">
+                        User Password is required.
+                    </div>
+                  </div>
                 </div>
                 <div class="form-group">
                   <label for="pswd">User Type:</label>
-                  <select name="usertype" class="form-control">
+                  <select name="usertype" class="form-control" required ngModel #usertype=ngModel>
                     <option selected>Select User Type</option>
                     <option value="user">Admin</option>
                     <option value="user">Driver</option>
                     <option value="user">User</option>
                   </select>
+                  <div *ngIf="usertype.invalid && (usertype.dirty || usertype.touched)">
+                    <div *ngIf="usertype.errors?.['required']" class="alert">
+                        User Type is required.
+                    </div>
+                  </div>
                 </div>
                   <div class="text-center">
-                    <input type="submit" name="submit" value="Login" class="btn btn-primary" routerLink="/dashboard" >
+                    <div *ngIf="loginform.invalid">
+                      <input type="submit" name="loginsubmit" value="Login" class="btn btn-primary" [disabled]="loginform.invalid">
+                    </div>
+                    <div *ngIf="loginform.valid" nghide="createbin">
+                      <input type="submit" name="loginsubmit" value="Login" class="btn btn-success">
+                    </div>
+                    
                 </div>
-              </form>
+              </form> -->
         </div>
     </div>
   </div>

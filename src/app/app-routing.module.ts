@@ -2,7 +2,6 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
 import { DashboardComponent } from './dashboard/dashboard.component';
-import { LoginComponent } from './login/login.component';
 import { AdminComponent } from './admin/admin.component';
 
 import { BinCreateComponent } from './bin/create/bincreate.component';
@@ -14,12 +13,17 @@ import { DriverUpdateComponent } from "./driver/update/driverupdate.component";
 import { RequestCreateComponent } from "./request/create/requestcreate.component";
 import { RequestUpdateComponent } from "./request/update/requestupdate.component";
 
+import { LoginComponent } from './login/login.component';
+import { LogoutComponent } from './logout/logout.component';
+import { AuthGuard } from './services/auth.guard';
 
 
 const routes: Routes = [
   { path: 'login', component: LoginComponent },
-  { path: 'dashboard', component: DashboardComponent },
+  { path: 'logout', component: LogoutComponent },
+  { path: 'dashboard', component: DashboardComponent, canActivate:[AuthGuard] },
   { path: 'adminrequest', component: AdminComponent },
+  
 
   { path: 'adminbin', component: AdminComponent },
   { path: 'admindriver', component: AdminComponent },
@@ -31,12 +35,13 @@ const routes: Routes = [
   { path: 'driverupdate', component: DriverUpdateComponent },
 
   { path: 'requestcreate', component: RequestCreateComponent },
-  { path: 'requestupdate', component: RequestUpdateComponent }
+  { path: 'requestupdate', component: RequestUpdateComponent },
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
+  providers: []
 })
 export class AppRoutingModule { }
-export const routingComponents = [LoginComponent, DashboardComponent, AdminComponent, BinCreateComponent, BinUpdateComponent,  DriverCreateComponent, DriverUpdateComponent, RequestCreateComponent, RequestUpdateComponent ];
+export const routingComponents = [LoginComponent, LogoutComponent, DashboardComponent, AdminComponent, BinCreateComponent, BinUpdateComponent,  DriverCreateComponent, DriverUpdateComponent, RequestCreateComponent, RequestUpdateComponent ];

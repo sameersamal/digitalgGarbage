@@ -9,25 +9,23 @@
                         <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 form-group">
                           <label for="requesttitle">Title:</label>
                           <input type="text" name="request" class="form-control" required ngModel #requestitle=ngModel>
-                          <div *ngIf="requestitle.invalid && (requestitle.dirty || requestitle.touched)" class="alert">
+                          <div *ngIf="requestitle.invalid && (requestitle.dirty || requestitle.touched)">
                             <div *ngIf="requestitle.errors?.['required']">
-                                Request Title is required
+                                <span class="alert">Request Title is required</span>
                             </div>
                           </div>
                         </div>
                     </div>                    
                     <div class="row">
                         <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 form-group">
-                          <div class="form-group">
                               <label for="requesttype">Request Type:</label>
                               <select name="requesttype" class="form-control" required ngModel #requestype=ngModel>
                               <option selected>Select Request/Complaint</option>
                               <option value="user">Request</option>
                               <option value="baroda">Complaint</option>
                               </select>
-                          </div>
-                          <div *ngIf="requestype.invalid && (requestype.dirty || requestype.touched)" class="alert">
-                            <div *ngIf="requestype.errors?.['required']">
+                          <div *ngIf="requestype.invalid && (requestype.dirty || requestype.touched)">
+                            <div *ngIf="requestype.errors?.['required']"  class="alert">
                                 Select Request Type
                             </div>
                           </div>
@@ -42,8 +40,8 @@
                         <option value="addremovedriver">Add/Remove Driver</option>
                         <option value="addremovedriver">Other</option>
                       </select>
-                      <div *ngIf="requestsubject.invalid && (requestsubject.dirty || requestsubject.touched)" class="alert">
-                        <div *ngIf="requestsubject.errors?.['required']">
+                      <div *ngIf="requestsubject.invalid && (requestsubject.dirty || requestsubject.touched)">
+                        <div *ngIf="requestsubject.errors?.['required']"  class="alert">
                             Subject is Required
                         </div>
                       </div>
@@ -56,8 +54,8 @@
                             <label for="description">Detail Description:</label>
                             <textarea name="description" id="description" cols="30" rows="10" class="form-control" required ngModel #description=ngModel></textarea>
                             <small><i>Not more than 100 words</i></small>
-                            <div *ngIf="description.invalid && (description.dirty || description.touched)" class="alert">
-                              <div *ngIf="description.errors?.['required']">
+                            <div *ngIf="description.invalid && (description.dirty || description.touched)">
+                              <div *ngIf="description.errors?.['required']"  class="alert">
                                   Detail Description is required.
                               </div>
                             </div>
